@@ -29,6 +29,20 @@ class Program
         }
         Console.WriteLine();
         Console.ReadLine();
+
+        IServicesRepository servicesRepository = new ServicesRepository();
+        var repositories = servicesRepository.GetServicesWithPriceAndDuratonByTypeId(int typeId);
+        foreach (var repository in repositories)
+        {
+            Console.WriteLine($"{repository.Id} {repository.Title} {repository.Price} {repository.Duration}")
+        }
+        ITypesRepository typesRepository = new TypesRepository();
+        var typesRepositorys = typesRepository.GetServiceType();
+        foreach(var types in typesRepositorys)
+        {
+            Console.WriteLine($"{types.Id} {types.Title} {types.IsDeleted}");
+        }
+
     }
 
     class Users

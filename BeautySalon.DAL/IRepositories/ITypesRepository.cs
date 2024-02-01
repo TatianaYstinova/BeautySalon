@@ -10,5 +10,7 @@ namespace BeautySalon.DAL.IRepositories
     public interface ITypesRepository
     {
         public List<TypesDTO> GetServiceType();
+
+        List<TypesDTO> GetFiveElementsFromType();
     }
 }
