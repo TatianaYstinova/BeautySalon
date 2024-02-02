@@ -17,4 +17,11 @@ public class OrderRepository: IOrderRepository
             return connection.Query<OrdersDTO>(Procedures.GetAllOrdersForClientProcedure,parameters).ToList();
         }
     }
+    public void RemoveOrderForClientByOrderId(int ordetId)
+    {
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            connection.Execute(ALTER proc[dbo].[RemoveOrderForClientByOrderId] @OrderId", new { OrderId = orderId });)
+        }
+    }
 }
