@@ -8,9 +8,14 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {
+    { 
         IOrderRepository orderRepository = new OrderRepository();
         orderRepository.RemoveOrderForClientByOrderId(1);
 
-        Concole.WriteLine(); }
+        
+
+        IOrderRepository repository = new OrderRepository();
+        repository.UpdateOrderTimeForClientById(1,1,1,1);
+        Console.WriteLine();
+    }
 }

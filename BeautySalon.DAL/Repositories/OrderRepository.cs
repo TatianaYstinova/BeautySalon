@@ -17,4 +17,12 @@ public class OrderRepository: IOrderRepository
             return connection.Query<OrdersDTO>(Procedures.RemoveOrderForClientByOrderId, parameters).ToList();
         }
     }
+    public List<UpdateOrderTimeForClientByIdDto> UpdateOrderTimeForClientById(int orderId, int clientId, int masterId, int intervalId)
+    {
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            var parameters = new {OrderId = orderId, ClientId = clientId, MasterId = masterId, IntervalId = intervalId };
+            return connection.Query<UpdateOrderTimeForClientByIdDto>(Procedures.UpdateOrderTimeForClientById, parameters).ToList();
+        }
+    }
 }
