@@ -10,7 +10,11 @@ class Program
     static void Main(string[] args)
     { 
         IOrderRepository orderRepository = new OrderRepository();
-        orderRepository.RemoveOrderForClientByOrderId(1);
+        var orders = orderRepository.GetOrdersByMasterId(2);
+        foreach (var order in orders)
+        {
+            Console.WriteLine();
+        }
 
         
 
