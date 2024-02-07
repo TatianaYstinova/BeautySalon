@@ -3,6 +3,7 @@ using BeautySalon.DAL.Repositories;
 
 namespace BeautySalon.Console;
 
+using BeautySalon.DAL.DTO;
 using System;
 
 class Program
@@ -212,5 +213,40 @@ class Program
         }
 
         #endregion
+
+
+        //IOrderRepository ordersRepository = new OrderRepository();
+        //ordersRepository.GetOrdersForClientById(4);
+        //foreach (var order in orders)
+        //{
+        //    Console.WriteLine();
+        //}
+
+        //OrdersListByClientIdDTO ordersData = ordersRepository.GetOrdersListByClientId(4);
+
+        //Console.WriteLine(ordersData.clientName);
+
+        //ordersData.Orders.ForEach(o => {
+        //        Console.Write(o.Date + " " + o.Services + "");
+        //        Console.WriteLine();
+        //    }
+        //);
+
+    //    IOrderRepository ordersRepository = new OrderRepository();
+    //    ordersRepository.CreateNewOrder( 5, 2,DateTime.Now , 1, 2);
+    //    foreach (var order in orders)
+    //    {
+    //        Console.WriteLine();
+    //    }
+
+        IOrderRepository order = new OrderRepository();
+        order.RemoveOrderForClientByOrderId(5);
+        foreach(var i in orders)
+        {
+             Console.WriteLine(i.Id);
+        }
     }
+
+
+
 }

@@ -10,15 +10,13 @@ namespace BeautySalon.DAL.DTO
 
         public int ClientId { get; set; }
 
-        public List<ServicesDTO> services { get; set; }
+        public ServicesDTO Services { get; set; }
 
         public int StartIntervalId { get; set; }
 
         public bool? IsDeleted { get; set; }
 
         public bool? IsCompleted { get; set; }
-        
-
+       
     }
-
 }

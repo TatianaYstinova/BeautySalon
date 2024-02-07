@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BeautySalon.DAL.DTO
+﻿namespace BeautySalon.DAL.DTO
 {
     public class IntеrvalsDTO
     {
@@ -8,13 +6,12 @@ namespace BeautySalon.DAL.DTO
 
         public string Title { get; set; }
 
-        public List<ShiftsDTO> Shifts { get; set; }
+        public int ShiftId { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public string StartTime { get; set; }
 
         public bool? IsBusy { get; set; }
-        public bool? Busy { get; set; }
-         
+       
         public bool? IsDeleted { get; set; }
     }
 }

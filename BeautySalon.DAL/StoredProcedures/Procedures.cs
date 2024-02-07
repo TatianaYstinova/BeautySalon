@@ -35,9 +35,10 @@ public class Procedures
     public const string GetMastersShiftsById = "GetMastersShiftsById";
     public const string GetAllOrdersOnTodayForMasters = "GetAllOrdersOnTodayForMasters";
 
-    
     public const string GetAllShiftsWithFreeIntervalsOnCurrentService = "GetAllShiftsWithFreeIntervalsOnCurrentService";
     public const string RemoveOrderForClientByOrderId = "RemoveOrderForClientByOrderId";
-
+    public const string UpdateOrderTimeForClientById = "UpdateOrderTimeForClientById";
+    public const string CreateNewOrder = "CreateNewOrder";
+    public const string GetOrderInfo = "GetOrderInfo";
 
 }

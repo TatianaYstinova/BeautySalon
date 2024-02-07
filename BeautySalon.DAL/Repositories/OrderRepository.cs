@@ -4,6 +4,7 @@ using BeautySalon.DAL.IRepositories;
 using BeautySalon.DAL.StoredProcedures;
 using Microsoft.Data.SqlClient;
 using Dapper;
+using System.Runtime.Intrinsics.X86;
 
 namespace BeautySalon.DAL.Repositories;
 
@@ -65,15 +66,6 @@ public class OrderRepository : IOrderRepository
         } 
     }
 
-    public List<OrdersDTO> RemoveOrderForClientByOrderId(int orderId)
-    {
-        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
-        {
-            var parameters = new { OrderId = orderId };
-            return connection.Query<OrdersDTO>(Procedures.RemoveOrderForClientByOrderId, parameters).ToList();
-        }
-    }
-
     public List<GetAllOrdersOnTodayForMastersDTO> GetAllOrdersOnTodayForMasters()
     {
         using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
@@ -105,5 +97,75 @@ public class OrderRepository : IOrderRepository
                     },splitOn:"Id,Title,Title,Name")
                 .ToList();
         } 
+    }
+    public List<OrdersByClientIdDTO> GetOrdersByClientId (int clientid)
+    {
+
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            var parameter = new
+            {
+                UserId = clientid,
+            };
+
+            return connection.Query<UsersDTO, OrdersByClientIdDTO, ServicesDTO, OrdersByClientIdDTO>
+                 (
+                     Procedures.GetOrderInfo,
+                     (master, order, service) =>
+                     {
+                         Console.Write(service.ServiceId);
+
+                         order.Master = master;
+                         order.Services = service;
+
+                         return order;
+                     },
+                     parameter, 
+                     splitOn:"MasterName,OrderId,ServiceId"
+                 ).ToList();
+
+            
+        }
+    }
+    public void UpdateOrderTimeForClientById(int orderId, int clientId, int masterId, int intervalId)
+    {
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            var parameters = new
+            {
+                OrderId = orderId,
+                ClientId = clientId,
+                MasterId = masterId,
+                IntervalId = intervalId
+            };
+            connection.Query(Procedures.UpdateOrderTimeForClientById, parameters).ToList();
+        }
+    }
+    public void  RemoveOrderForClientByOrderId (int orderId)
+    {
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            var parameters = new
+            {
+                OrderId = orderId
+            };
+              connection.Query<OrdersDTO>(Procedures.RemoveOrderForClientByOrderId, parameters);
+        }
+    }
+    public void CreateNewOrder(int clientId, int masterId, DateTime date, int serviceId, int intervalId)
+    {
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            var parameters = new
+            {
+                ClientId = clientId,
+                MasterId = masterId,
+                Date = date,
+                ServiceId = serviceId,
+                IntervalId = intervalId
+            };
+            
+            connection.Query<OrdersDTO>(Procedures.CreateNewOrder, parameters);
+        }
     }
 }
