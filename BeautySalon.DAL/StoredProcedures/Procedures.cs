@@ -41,4 +41,6 @@ public class Procedures
     public const string CreateNewOrder = "CreateNewOrder";
     public const string GetOrderInfo = "GetOrderInfo";
 
+    public const string GetOrdersByClientId2 = "GetOrdersByClientId2";
+
 }
