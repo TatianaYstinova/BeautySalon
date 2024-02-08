@@ -326,6 +326,7 @@ from
 where Client.Id = @Id and Orders.IsDeleted = 0
 end
 
+go
 -- ✓ Для ВЫБРАННОЙ услуги вывести все смены, имеющие СВОБОДНЫЕ интервалы для записи
 create proc GetAllShiftsWithFreeIntervalsOnCurrentService
 @ServiceId int as

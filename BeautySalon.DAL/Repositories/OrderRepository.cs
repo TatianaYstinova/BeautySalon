@@ -109,8 +109,8 @@ public class OrderRepository : IOrderRepository
     {
         using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
         {
-            {
             var parameters = new
+            {
                 OrderId = orderId,
                 ClientId = clientId,
                 MasterId = masterId,
@@ -134,8 +134,8 @@ public class OrderRepository : IOrderRepository
     {
         using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
         {
-            {
             var parameters = new
+            {
                 ClientId = clientId,
                 MasterId = masterId,
                 Date = date,

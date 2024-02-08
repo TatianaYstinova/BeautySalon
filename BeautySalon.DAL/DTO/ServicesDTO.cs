@@ -4,6 +4,7 @@ namespace BeautySalon.DAL.DTO
 {
     public class ServicesDTO
     {
+        public int Id { get; set; }
         public int ServiceId { get; set; }
         public string Title { get; set; }
         public int TypeId { get; set; }
