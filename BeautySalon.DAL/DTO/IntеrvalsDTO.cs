@@ -1,4 +1,4 @@
-﻿namespace BeautySalon.DAL.DTO
+namespace BeautySalon.DAL.DTO
 {
     public class IntеrvalsDTO
     {
@@ -11,7 +11,10 @@
         public string StartTime { get; set; }
 
         public bool? IsBusy { get; set; }
-       
+
+        //public bool? Busy { get; set; }
+         
         public bool? IsDeleted { get; set; }
+
     }
 }
