@@ -18,7 +18,7 @@ public class UserWelcomeHandler
             new []
             {
                 InlineKeyboardButton.WithCallbackData(text: "Как добраться", callbackData: "11"),
-                InlineKeyboardButton.WithCallbackData(text: "Записаться", callbackData: "12"),
+                InlineKeyboardButton.WithCallbackData(text: "Записаться", callbackData: "записаться"),
             },
             // second row
             new []
@@ -33,6 +33,7 @@ public class UserWelcomeHandler
             text: $"Добро пожаловать к виртуальному помощнику сети салонов красоты \"Beautiful girl\", {update.Message.Chat.Username}!\n\nДля новых клиентов у нас действует скидка 10% (обязательно ею воспользуйся!).",
             replyMarkup: inlineKeyboard,
             cancellationToken: cancellationToken);
+        
     }
 
 }
