@@ -423,5 +423,28 @@ class Program
         // Console.WriteLine(result);
 
         #endregion
+        //UserClient client = new UserClient();
+        //client.AddUserByChatId(new AddUserByChatIdInputModel()
+        //{
+        //    ChatId = 1536667079,
+        //    ClientId = 7,
+        //    UserName = "Татьяна Устинова",
+        //    Client = "@",
+        //    Name = " ",
+        //    Phone = " ",
+        //    Mail = " ",
+        //    RoleId = 1,
+           
+        //}) ;
+
+        OrderClient orderClient = new OrderClient();
+        orderClient.CreateNewOrder(new BLL.Models.InputModels.NewOrderInputModel()
+        {
+            ClientId = 7,
+            Date = DateTime.Now,
+            MasterId = 1,
+            ServiceId = 1,
+            StartIntervalId = 1,
+        });
     }
 }

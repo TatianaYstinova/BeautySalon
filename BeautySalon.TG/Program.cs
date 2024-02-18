@@ -93,7 +93,11 @@ public class Program
                 ServicesHandler servicesHandler = new ServicesHandler();
                 servicesHandler.GetBackToMenu(botClient, update, cancellationToken);
             }
-
+            if (update.CallbackQuery.Data == "мои записи")
+            {
+                UserBottonMyPosts button = new UserBottonMyPosts();
+                button.ShowOrders(botClient, update, cancellationToken);
+            }
             if (update.CallbackQuery.Data == "стрижка")
             {
                 ServicesHandler servicesHandler = new ServicesHandler();

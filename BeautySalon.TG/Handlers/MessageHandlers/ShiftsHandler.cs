@@ -10,7 +10,7 @@ public class ShiftsHandler
 {
     public async void ChoseShift(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
     {
-        ShiftsClient shiftsClient = new ShiftsClient(); 
+        ShiftsClient shiftsClient = new ShiftsClient();
         var shifts = shiftsClient.GetAllShiftsOnToday();
 
         List<InlineKeyboardButton[]> buttons = new List<InlineKeyboardButton[]>();
