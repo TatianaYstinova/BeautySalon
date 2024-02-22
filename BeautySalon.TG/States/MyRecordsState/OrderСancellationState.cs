@@ -13,9 +13,9 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace BeuatySalon.TG.States.MyRecordsState
 {
-    public class RescheduleOrCancelationState : AbstractState
+    public class OrderСancellationState : AbstractState
     {
-        public RescheduleOrCancelationState(int orderIdToRescheduleOrCancel)
+        public OrderСancellationState(int orderIdToRescheduleOrCancel)
         {
             OrderId = orderIdToRescheduleOrCancel;
         }

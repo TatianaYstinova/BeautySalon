@@ -109,7 +109,7 @@ namespace BeuatySalon.TG.States.MyRecordsState
                 if(currentOrder.Order.Id.ToString() == update.CallbackQuery.Data.ToString())
                 {
                     int orderIdToRescheduleOrCancel = int.Parse(update.CallbackQuery.Data.ToString());
-                    return new RescheduleOrCancelationState(orderIdToRescheduleOrCancel);
+                    return new OrderСancellationState(orderIdToRescheduleOrCancel);
                 }
             }
           
